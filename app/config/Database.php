@@ -27,7 +27,7 @@ class Database
 
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
-                die("Koneksi database gagal: " . $e->getMessage());
+                die("Koneksi database gagal: " . $e->getMessage() . " (Host: $host, Port: $port)");
             }
         }
 

@@ -9,9 +9,9 @@ define('BASE_URL', $protocol . '://' . $host);
 // Database Configuration
 // Prioritize environment variables for deployment (e.g. Railway)
 // Fallback to local default values
-define('DB_HOST', getenv('MYSQLHOST') ?: 'localhost');
-define('DB_USER', getenv('MYSQLUSER') ?: 'root');
-define('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
-define('DB_NAME', getenv('MYSQLDATABASE') ?: 'zentori_db');
-define('DB_PORT', getenv('MYSQLPORT') ?: '3306');
+define('DB_HOST', $_ENV['MYSQLHOST'] ?? getenv('MYSQLHOST') ?: '127.0.0.1');
+define('DB_USER', $_ENV['MYSQLUSER'] ?? getenv('MYSQLUSER') ?: 'root');
+define('DB_PASS', $_ENV['MYSQLPASSWORD'] ?? getenv('MYSQLPASSWORD') ?: '');
+define('DB_NAME', $_ENV['MYSQLDATABASE'] ?? getenv('MYSQLDATABASE') ?: 'zentori_db');
+define('DB_PORT', $_ENV['MYSQLPORT'] ?? getenv('MYSQLPORT') ?: '3306');
 define('APP_NAME', 'Sistem Inventori');
