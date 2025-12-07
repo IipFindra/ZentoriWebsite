@@ -14,21 +14,28 @@ $db_name = 'zentori_db';
 $db_port = '3306';
 
 // 1. Try Specific Environment Variables (Railway MySQL Service defaults)
-if (!empty($_ENV['MYSQLHOST']) || getenv('MYSQLHOST')) {
-    $db_host = $_ENV['MYSQLHOST'] ?? getenv('MYSQLHOST');
-    $db_user = $_ENV['MYSQLUSER'] ?? getenv('MYSQLUSER');
-    $db_pass = $_ENV['MYSQLPASSWORD'] ?? getenv('MYSQLPASSWORD');
-    $db_name = $_ENV['MYSQLDATABASE'] ?? getenv('MYSQLDATABASE');
-    $db_port = $_ENV['MYSQLPORT'] ?? getenv('MYSQLPORT');
+// Check $_ENV, getenv(), and $_SERVER (some SAPIs manipulate these differently)
+$envHost = $_ENV['MYSQLHOST'] ?? getenv('MYSQLHOST') ?? $_SERVER['MYSQLHOST'] ?? null;
+if ($envHost) {
+    $db_host = $envHost;
+    $db_user = $_ENV['MYSQLUSER'] ?? getenv('MYSQLUSER') ?? $_SERVER['MYSQLUSER'] ?? 'root';
+    $db_pass = $_ENV['MYSQLPASSWORD'] ?? getenv('MYSQLPASSWORD') ?? $_SERVER['MYSQLPASSWORD'] ?? '';
+    $db_name = $_ENV['MYSQLDATABASE'] ?? getenv('MYSQLDATABASE') ?? $_SERVER['MYSQLDATABASE'] ?? 'zentori_db';
+    $db_port = $_ENV['MYSQLPORT'] ?? getenv('MYSQLPORT') ?? $_SERVER['MYSQLPORT'] ?? '3306';
 } 
-// 2. Try DATABASE_URL (Common in many providers)
-elseif (!empty($_ENV['DATABASE_URL']) || getenv('DATABASE_URL')) {
-    $url = parse_url($_ENV['DATABASE_URL'] ?? getenv('DATABASE_URL'));
-    $db_host = $url['host'] ?? $db_host;
-    $db_user = $url['user'] ?? $db_user;
-    $db_pass = $url['pass'] ?? $db_pass;
-    $db_name = ltrim($url['path'] ?? '', '/') ?: $db_name;
-    $db_port = $url['port'] ?? $db_port;
+// 2. Try MYSQL_URL or DATABASE_URL (Common in many providers)
+elseif (!empty($_ENV['MYSQL_URL']) || getenv('MYSQL_URL') || !empty($_ENV['DATABASE_URL']) || getenv('DATABASE_URL')) {
+    $connectionUrl = $_ENV['MYSQL_URL'] ?? getenv('MYSQL_URL') ?? $_SERVER['MYSQL_URL'] ??
+                     $_ENV['DATABASE_URL'] ?? getenv('DATABASE_URL') ?? $_SERVER['DATABASE_URL'];
+    
+    if ($connectionUrl) {
+        $url = parse_url($connectionUrl);
+        $db_host = $url['host'] ?? $db_host;
+        $db_user = $url['user'] ?? $db_user;
+        $db_pass = $url['pass'] ?? $db_pass;
+        $db_name = ltrim($url['path'] ?? '', '/') ?: $db_name;
+        $db_port = $url['port'] ?? $db_port;
+    }
 }
 
 define('DB_HOST', $db_host);
