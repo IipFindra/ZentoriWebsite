@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\models;
 
-use App\Models\BaseModel;
+use App\models\BaseModel;
 
 class Barang extends BaseModel
 {

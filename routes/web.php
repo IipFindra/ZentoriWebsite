@@ -1,13 +1,13 @@
 <?php
 
-use App\Config\Router;
-use App\Controllers\AuthController;
-use App\Controllers\BarangController;
-use App\Controllers\DashboardController;
-use App\Controllers\StokController;
-use App\Controllers\SupplierController;
-use App\Controllers\UserController;
-use App\Middleware\AuthMiddleware;
+use App\config\Router;
+use App\controllers\AuthController;
+use App\controllers\BarangController;
+use App\controllers\DashboardController;
+use App\controllers\StokController;
+use App\controllers\SupplierController;
+use App\controllers\UserController;
+use App\middleware\AuthMiddleware;
 
 Router::add('GET', '/login', AuthController::class, 'login', [AuthMiddleware::class, 'redirectIfAuthenticated']);
 Router::add('POST', '/auth/login/process', AuthController::class, 'processLogin', [AuthMiddleware::class, 'redirectIfAuthenticated']);

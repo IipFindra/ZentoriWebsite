@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
-use App\Config\View;
-use App\Config\Database;
+use App\config\View;
+use App\config\Database;
 
 class DashboardController
 {

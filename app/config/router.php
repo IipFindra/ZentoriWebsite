@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Config;
+namespace App\config;
 
-use App\Middleware\AuthMiddleware;
+use App\middleware\AuthMiddleware;
 
 class Router
 {

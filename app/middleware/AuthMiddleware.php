@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Middleware;
+namespace App\middleware;
 
-use App\Controllers\AuthController;
+use App\controllers\AuthController;
 
 class AuthMiddleware
 {

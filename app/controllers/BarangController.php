@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
-use App\Config\View;
-use App\Models\Barang;
-use App\Models\Kategori;
-use App\Models\Stok;
+use App\config\View;
+use App\models\Barang;
+use App\models\Kategori;
+use App\models\Stok;
 
 class BarangController
 {

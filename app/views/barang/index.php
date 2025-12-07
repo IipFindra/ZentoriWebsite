@@ -69,7 +69,7 @@ include __DIR__ . '/../layouts/sidebar.php';
                         <?php foreach ($barang as $row): ?>
                             <?php if ($row['status'] === 'active'): ?>
                                 <?php
-                                $stockModel = new App\Models\Stok();
+                                $stockModel = new App\models\Stok();
                                 $expiredInfo = $stockModel->getExpiredInfoByBarang($row['id_barang']);
                                 $hasExpired = !empty($expiredInfo['expired_batches']);
                                 $hasExpiringSoon = !empty($expiredInfo['expiring_soon_batches']);

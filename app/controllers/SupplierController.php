@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
-use App\Config\View;
-use App\Models\Supplier;
+use App\config\View;
+use App\models\Supplier;
 
 class SupplierController
 {

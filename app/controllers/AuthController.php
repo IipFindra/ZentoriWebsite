@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
-use App\Config\View;
-use App\Models\BaseModel;
-use App\Models\User;
+use App\config\View;
+use App\models\BaseModel;
+use App\models\User;
 
 class AuthController extends BaseModel
 {

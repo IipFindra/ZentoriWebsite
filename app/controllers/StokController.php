@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
-use App\Config\View;
-use App\Models\Stok;
-use App\Models\Barang;
-use App\Models\StokKeluar;
+use App\config\View;
+use App\models\Stok;
+use App\models\Barang;
+use App\models\StokKeluar;
 
 class StokController
 {
