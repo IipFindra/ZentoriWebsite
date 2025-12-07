@@ -16,10 +16,11 @@ class Database
             $dbname = DB_NAME;
             $username = DB_USER;
             $password = DB_PASS;
+            $port = defined('DB_PORT') ? DB_PORT : 3306;
 
             try {
                 self::$instance = new PDO(
-                    "mysql:host=$host;dbname=$dbname;charset=utf8",
+                    "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8",
                     $username,
                     $password
                 );
