@@ -102,7 +102,7 @@ CREATE TABLE `barang` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_barang`),
   KEY `id_kategori` (`id_kategori`),
-  CONSTRAINT `barang_ibfk_1` FOREIGN_KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL
+  CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -138,9 +138,9 @@ CREATE TABLE `stok_masuk` (
   KEY `id_barang` (`id_barang`),
   KEY `id_supplier` (`id_supplier`),
   KEY `id_user` (`id_user`),
-  CONSTRAINT `stok_masuk_ibfk_1` FOREIGN_KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE,
-  CONSTRAINT `stok_masuk_ibfk_2` FOREIGN_KEY (`id_supplier`) REFERENCES `suppliers` (`id_supplier`) ON DELETE CASCADE,
-  CONSTRAINT `stok_masuk_ibfk_3` FOREIGN_KEY (`id_user`) REFERENCES `users` (`id_users`) ON DELETE CASCADE
+  CONSTRAINT `stok_masuk_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE,
+  CONSTRAINT `stok_masuk_ibfk_2` FOREIGN KEY (`id_supplier`) REFERENCES `suppliers` (`id_supplier`) ON DELETE CASCADE,
+  CONSTRAINT `stok_masuk_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_users`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -173,8 +173,8 @@ CREATE TABLE `stok_keluar` (
   PRIMARY KEY (`id_stokout`),
   KEY `id_barang` (`id_barang`),
   KEY `id_user` (`id_user`),
-  CONSTRAINT `stok_keluar_ibfk_1` FOREIGN_KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE,
-  CONSTRAINT `stok_keluar_ibfk_2` FOREIGN_KEY (`id_user`) REFERENCES `users` (`id_users`) ON DELETE CASCADE
+  CONSTRAINT `stok_keluar_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE,
+  CONSTRAINT `stok_keluar_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_users`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -206,8 +206,8 @@ CREATE TABLE `log_expired` (
   PRIMARY KEY (`id_log`),
   KEY `id_barang` (`id_barang`),
   KEY `id_user` (`id_user`),
-  CONSTRAINT `log_expired_ibfk_1` FOREIGN_KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE,
-  CONSTRAINT `log_expired_ibfk_2` FOREIGN_KEY (`id_user`) REFERENCES `users` (`id_users`) ON DELETE CASCADE
+  CONSTRAINT `log_expired_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE,
+  CONSTRAINT `log_expired_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_users`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 SET FOREIGN_KEY_CHECKS=1;
