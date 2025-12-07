@@ -8,7 +8,7 @@ class View
     {
         extract($data);
 
-        $file = __DIR__ . "/../Views/" . $view . ".php";
+        $file = __DIR__ . "/../views/" . $view . ".php";
 
         if (file_exists($file)) {
             include $file;
