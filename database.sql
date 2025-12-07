@@ -28,7 +28,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_users`, `nama`, `email`, `password`, `role`, `status`, `created_at`) VALUES
 ('U001', 'Budi Santoso', 'budi@beautyshop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'active', '2024-01-01 02:00:00'),
 ('U002', 'Sari Dewi', 'sari@beautyshop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'staff', 'active', '2024-01-02 03:00:00'),
-('U003', 'Rina Melati', 'rina@beautyshop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'active', '2024-01-03 04:00:00');
+('U003', 'Rina Melati', 'rina@beautyshop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'active', '2024-01-03 04:00:00'),
+('U004', 'Bella Sari', 'bella@gmail.com', '$2y$10$H8KMQJxDRReDzdCmbftPMeO68LgCJrJ1djH3ehRDlbah4GNbs/u.y', 'admin', 'active', '2025-01-01 10:00:00');
 
 -- --------------------------------------------------------
 
